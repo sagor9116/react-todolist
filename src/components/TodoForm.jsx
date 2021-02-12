@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 
 const TodoForm = ({addTodo}) => {
     const [inputText, setInputText] = useState('');
+
     const handleInputTextChange = (e) => {
         setInputText(e.target.value)
     }
-
+    
     const handleFormSubmit = (e) => {
         e.preventDefault();
         if (inputText === '') return

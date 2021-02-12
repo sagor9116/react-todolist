@@ -9,23 +9,13 @@ function App() {
   const [todos,setTodos] = useState([
     {
       id: uuid,
-      title : 'Wake up at 6.00 a.m',
+      title : '',
       completed : false
-    },
-    {
-      id: uuid,
-      title : 'Try to code',
-      completed : false
-    },
-    {
-      id: uuid,
-      title : 'Make use of the day',
-      completed : true
     }
   ]);
 
   const addTodo = (title) => {
-    const newTodo = [...todos, {title, completed : false}]
+    const newTodo = [...todos, {title}]
     setTodos(newTodo);
   }
   
@@ -36,9 +26,15 @@ function App() {
         <TodoForm addTodo = {addTodo} />
       </div>
       
-      {todos.map((todo)=> {
+      {/* {todos.map((todo)=> {
         return <TodoItem key = {todo.id} title = {todo.title} completed = {todo.completed} />
+      })} */}
+
+      {todos.map(({id,title,completed})=> {
+        return <TodoItem key = {id} title = {title} completed = {completed} />
       })}
+
+
       
       
     </div>
